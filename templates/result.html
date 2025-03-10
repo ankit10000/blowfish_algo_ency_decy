@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Encryption Results</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+        <h2 class="text-2xl font-bold text-center text-gray-700 mb-4">Encryption/Decryption Complete!</h2>
+
+        <p class="text-gray-600 mb-4">Here are your processed files with their MD5 checksums:</p>
+
+        <ul class="space-y-2">
+            {% for file, md5 in download_links %}
+                <li class="p-2 border border-gray-300 rounded-lg flex justify-between">
+                    <a href="{{ url_for('download_file', filename=file.split('/')[-1]) }}">
+
+                       class="text-blue-500 hover:underline">
+                        {{ file | basename }}
+                    </a>
+                    <span class="text-gray-500 text-sm">MD5: <strong>{{ md5 }}</strong></span>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <a href="/" class="block mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg text-center hover:bg-blue-600">Upload More Files</a>
+    </div>
+
+</body>
+</html>
