@@ -19,7 +19,6 @@ MODES = {
     "CBC": Blowfish.MODE_CBC,
     "CFB": Blowfish.MODE_CFB,
     "OFB": Blowfish.MODE_OFB,
-    "CTR": Blowfish.MODE_CTR
 }
 
 # Function to compute MD5 checksum

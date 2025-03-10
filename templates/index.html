@@ -20,25 +20,24 @@
 
             <label class="block text-gray-600 font-medium">Choose Operation:</label>
             <select name="operation" class="w-full p-2 border border-gray-300 rounded-lg">
-                <option value="encrypt">Encrypt</option>
-                <option value="decrypt">Decrypt</option>
+                <option value="encrypt" {% if request.form.get('operation') == 'encrypt' %}selected{% endif %}>Encrypt</option>
+                <option value="decrypt" {% if request.form.get('operation') == 'decrypt' %}selected{% endif %}>Decrypt</option>
             </select>
 
             <label class="block text-gray-600 font-medium">Choose Mode:</label>
             <select name="mode" class="w-full p-2 border border-gray-300 rounded-lg">
-                <option value="ECB">ECB</option>
-                <option value="CBC">CBC</option>
-                <option value="CFB">CFB</option>
-                <option value="OFB">OFB</option>
-                <option value="CTR">CTR</option>
+                <option value="ECB" {% if request.form.get('mode') == 'ECB' %}selected{% endif %}>ECB</option>
+                <option value="CBC" {% if request.form.get('mode') == 'CBC' %}selected{% endif %}>CBC</option>
+                <option value="CFB" {% if request.form.get('mode') == 'CFB' %}selected{% endif %}>CFB</option>
+                <option value="OFB" {% if request.form.get('mode') == 'OFB' %}selected{% endif %}>OFB</option>
             </select>
 
-            <label class="block text-gray-600 font-medium">Output Format:</label>
+            <label class="block text-gray-600 font-medium">Output Format (Prefix: Selected Format):</label>
             <select name="output_format" class="w-full p-2 border border-gray-300 rounded-lg">
-                <option value="base64">Base64</option>
-                <option value="hex">Hex</option>
-                <option value="string">String</option>
-                <option value="raw">Raw</option>
+                <option value="base64" {% if request.form.get('output_format') == 'base64' %}selected{% endif %}>Base64</option>
+                <option value="hex" {% if request.form.get('output_format') == 'hex' %}selected{% endif %}>Hex</option>
+                <option value="string" {% if request.form.get('output_format') == 'string' %}selected{% endif %}>String</option>
+                <option value="raw" {% if request.form.get('output_format') == 'raw' %}selected{% endif %}>Raw</option>
             </select>
 
             <button type="submit" class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">Process Files</button>
